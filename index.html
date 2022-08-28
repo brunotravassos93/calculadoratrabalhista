@@ -26,20 +26,18 @@
                </div>
                <div class="question horasTrabalhadas">
                   <label>Digite o número de horas trabalhadas durante a semana (SEM incluir o feriado):</label>
-                  <input type="number" id="input inputSemFeriado" name="feriadoChecked" />
+                  <input type="number" id="inputSemFeriado" name="feriadoChecked" />
                </div>
                <div class="question">
                   <label>Digite o valor recebido por hora trabalhada:</label>
-                  <input type="number" id="input valorHora" name="valor" />
+                  <input type="number" id="valorHora" name="valor" />
                </div>
                <div id="inputFeriado" class="question horasTrabalhadas feriado hidden">
                   <label>Digite o número de horas trabalhas durante o feriado:</label>
-                  <input type="number" id="input" name="feriadoChecked" />
+                  <input type="number" id="valorHoraFeriado" name="feriadoChecked" />
                </div>
-               <button onclick="calcular()" id="button">Calcular</button>
-               <div id="resultado">
-
-               </div>
+               <button id="button">Calcular</button>
+               <div id="resultado"></div>
             </form>
          </fieldset>
       </div>

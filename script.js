@@ -1,27 +1,23 @@
-var checkbox = document.querySelector("#feriadoSim");
+var select = (selector) => document.querySelector(selector);
 
-checkbox.addEventListener('change', function() {
-   if (this.checked) {
-     document.getElementById('inputFeriado').classList.remove("hidden");
-   } else {
-      document.getElementById('inputFeriado').classList.add("hidden");
-   }
-});
+select("#feriadoSim").addEventListener("change", () =>
+   select("#inputFeriado").classList.toggle("hidden")
+);
 
-function calcular() {
-   let horasTrabalhadas = document.querySelector('#inputSemFeriado').value;
-   let valorHora = document.querySelector('#valorHora').value;
-   let resultado = '';
-   console.log(horasTrabalhadas);
-   console.log(valorHora);
+select("#button").addEventListener("click", (event) => {
+   event.preventDefault();
+   let horasTrabalhadas = select('#inputSemFeriado').value;
+   let valorHora = select('#valorHora').value;
+   let resultado;
 
-   if(horasTrabalhadas <= 40) {
+   if (horasTrabalhadas <= 40) {
       resultado = horasTrabalhadas * valorHora;
-   } else if (horasTrabalhadas > 40) {
-      resultado = (40 * valorHora) + ((horasTrabalhadas - 40) * (valorHora * 1.5));
+   } else {
+      resultado = 40 * valorHora + (horasTrabalhadas - 40) * valorHora * 1.5;
    }
 
-   console.log(resultado);
-
-   document.querySelector('#resultado').innerHTML = resultado;
-}
+   if (!select("#inputFeriado").classList.contains("hidden")) {
+      resultado += select("#valorHoraFeriado").value * 2;
+   }
+   select('#resultado').textContent = resultado;
+});
