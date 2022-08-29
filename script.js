@@ -1,11 +1,25 @@
 var select = (selector) => document.querySelector(selector);
 
-select("#feriadoSim").addEventListener("change", () =>
-   //select("#inputFeriado").classList.replace('hidden', 'question')
-  changeClasses()
-);
 
-function changeClasses() {
+
+select("#feriadoSim").addEventListener("change", () =>
+   changeClassesInput()
+)
+select("#feriadoSim").addEventListener("change", () =>
+   removeSpan()
+)
+
+function removeSpan() {
+   if (select('.obs').classList.contains('hidden')) {
+      select('.obs').classList.remove('hidden');
+      select('.obs').classList.add('question');
+   } else {
+      select('.obs').classList.remove('question');
+      select('.obs').classList.add('hidden');
+   }
+}
+
+function changeClassesInput() {
    if (select("#inputFeriado").classList.contains('hidden')) {
       select("#inputFeriado").classList.remove('hidden');
       select("#inputFeriado").classList.add('question');
@@ -34,24 +48,55 @@ select("#reset").addEventListener('click', (event) => {
 function calcular() {
    let horasTrabalhadas = document.querySelector('#horasSemFeriado').value;
    let valorHora = document.querySelector('#valorHora').value;
-   let resultado = '';
+   let salarioSemanal = '';
    let horasFeriado = select('#horasFeriado').value;
 
    
    switch ((select("#horasFeriado").classList.contains("hidden"))) {
       case (select("#horasFeriado").classList.contains("hidden")):
-         if(horasTrabalhadas <= 40) {
-            resultado = horasTrabalhadas * valorHora;
+         if(horasTrabalhadas <= 44) {
+            salarioSemanal = horasTrabalhadas * valorHora;
          } else {
-            resultado = (40 * valorHora) + ((horasTrabalhadas - 40) * (valorHora * 1.5));
+            salarioSemanal = (44 * valorHora) + ((horasTrabalhadas - 44) * (valorHora * 1.5));
          }
          case (!select("#horasFeriado").classList.contains("hidden")):
-            if(horasTrabalhadas <= 40) {
-               resultado = (horasTrabalhadas * valorHora) + (horasFeriado * (valorHora * 2));
+            if(horasTrabalhadas <= 44) {
+               salarioSemanal = (horasTrabalhadas * valorHora) + (horasFeriado * (valorHora * 2));
             } else {
-               resultado = (40 * valorHora) + ((horasTrabalhadas - 40) * (valorHora * 1.5)) + (horasFeriado * (valorHora * 2));
+               salarioSemanal = (44 * valorHora) + ((horasTrabalhadas - 44) * (valorHora * 1.5)) + (horasFeriado * (valorHora * 2));
             }
          }
          
-         select('#resultado').textContent = resultado;
-      }
+   salarioMensal = salarioSemanal * 5;
+   select('#resultado').textContent = salarioSemanal;
+   select('#resultadoMensal').textContent = salarioMensal;
+
+}
+
+
+/* VALES */
+
+function calcularVales() {
+   var valorValeTransporte = document.getElementById('transporte').value;
+   var valorValeAlimentacao = document.getElementById('alimentacao').value;
+   var diasValeTransporte = document.getElementById('diasValeTransporte').value;
+   var diasValeAlimentacao =  document.getElementById('diasValeAlimentacao').value;
+   
+   totalTransporteSemanal = diasValeTransporte * valorValeTransporte;
+   totalAlimentacaoSemanal = diasValeAlimentacao * valorValeAlimentacao;
+
+   select('#resultadoValeTransporte').textContent = totalTransporteSemanal;
+   select('#resultadoValeAlimentacao').textContent = totalAlimentacaoSemanal;
+}
+
+select('#buttonCalc2').addEventListener('click', (e) => {
+   e.preventDefault();
+   calcularVales();
+})
+
+select("#resetVales").addEventListener('click', (event) => {
+   select('#resultadoValeAlimentacao').textContent = '';
+})
+select("#resetVales").addEventListener('click', (event) => {
+   select('#resultadoValeTransporte').textContent = '';
+})

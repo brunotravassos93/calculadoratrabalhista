@@ -17,7 +17,7 @@
    <main>
       <div class="container">
          <fieldset>
-            <legend>Cálculo dos valores devidos pela semana trabalhada</legend>
+            <legend>Calcule seu salário semanal</legend>
             <form>
                <div class="question trabalhouFeriado">
                   <label>Trabalhou em algum feriado nesta semana?</label>
@@ -27,11 +27,11 @@
                   </div>
                </div>
                <div class="question horasTrabalhadas">
-                     <label>Digite o número de horas trabalhadas durante a semana (SEM incluir o feriado):</label>
+                     <label id="horasTrabalhadasText">Digite o número de horas trabalhadas durante a semana <span class="obs hidden">(sem incluir o feriado)</span>:</label>
                      <input type="number" class="inputHoras" id="horasSemFeriado" name="feriadoChecked" />
                </div>
-               <div class="question">
-                  <label>Digite o valor recebido por hora trabalhada:</label>
+               <div class="question" >
+                  <label id="textHoraValor">Digite o valor recebido por hora trabalhada(um salário mínimo equivale a R$5,51/hora):</label>
                   <input type="number" class="inputHoras" id="valorHora" name="valor" />
                </div>
                <div id="inputFeriado" class="horasTrabalhadasFeriado hidden">
@@ -43,12 +43,50 @@
                   <button class="button" id="button">Calcular</button>
                </div>
                <div id="textResult">
-                  <p>O valor a ser recebido nesta semana é de: R$<span id="resultado"></span></p>
+                  <p>O valor a ser recebido nesta semana é de: R$<span id="resultado">---</span></p>
+                  <p>O valor a ser recebido neste mês, se seguir desta forma, é de: R$<span id="resultadoMensal">---</span></p>
                </div>
             </form>
          </fieldset>
       </div>
    </main>
+   <section>
+      <div class="container">
+         <fieldset class="bottonFieldset">
+            <legend>Calcule os vales a serem recebidos nesta semana</legend>
+               <form>
+                  <div class="vales">
+                     <div class="valeTransporte">
+                        <label> Digite o valor diário a ser recebido de vale-transporte:</label>
+                        <input type="number" id="transporte" class="vales"/>
+                     </div>
+                     <div class="diasTrabalhadosValeTransporte">
+                        <label>Tem direito ao vale-transporte quantos dias desta semana?</label>
+                        <input type="number" id="diasValeTransporte" class="vales"/>
+                     </div>
+                     <div class="valeAlimentacao">
+                        <label> Digite o valor diário a ser recebido de vale-alimentação:</label>
+                        <input type="number" id="alimentacao" class="vales"/>
+                     </div>
+                     <div class="diasTrabalhadosValeAlimentacao">
+                        <label>Tem direito ao vale-transporte quantos dias desta semana?</label>
+                        <input type="number" id="diasValeAlimentacao" class="vales"/>
+                     </div>
+                  </div>
+                  <div class="buttons">
+                     <input class="buttonReset" id="resetVales" type="reset" value="Limpar" />
+                     <button class="button" id="buttonCalc2">Calcular</button>
+                  </div>
+                  <div id="textResult">
+                     <p>O valor a ser recebido nesta semana é de: R$<span id="resultadoValeTransporte">---</span> para transporte</p>
+                  </div>
+                  <div id="textResult">
+                     <p>O valor a ser recebido nesta semana é de: R$<span id="resultadoValeAlimentacao">---</span> para alimentação</p>
+                  </div>
+               </form>
+         </fieldset>
+      </div>
+   </section>
 
    <script type="text/javascript" src="./script.js"></script>
 </body>
