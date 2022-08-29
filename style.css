@@ -5,7 +5,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  background: url(./img/bg.jpg);
+  background-image: url(./img/bg.jpg);
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -77,7 +77,7 @@ fieldset legend {
   margin: 0;
 }
 .questionCheckbox label {
-  font-weight: bold
+  font-weight: bold;
 }
 .question #textHoraValor {
   max-width: 350px;
