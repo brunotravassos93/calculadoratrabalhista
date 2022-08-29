@@ -5,7 +5,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  background-image: url('./bg.jpg');
+  background-image: url('https://blog.solides.com.br/wp-content/uploads/2021/02/direitos-trabalhistas-scaled.jpg');
   background-size: contain;
   display: flex;
   flex-direction: column;
