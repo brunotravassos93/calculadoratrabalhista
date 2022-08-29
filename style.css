@@ -6,7 +6,9 @@
 }
 
 .hidden {
-   display: none;
+  display: none;
+  margin: 10px;
+  align-items: center;
 }
 
 .top {
@@ -29,6 +31,14 @@ fieldset legend {
 }
 .question {
   margin: 10px;
+  display: flex;
+  align-items: center;
+}
+.questionCheckbox {
+  margin-left: 5px;
+}
+.question input {
+  margin-left: 5px;
 }
 
 form {
@@ -63,5 +73,28 @@ form .inputHoras {
 #textResult {
   margin-top: 20px;
   font-weight: bold;
+}
 
+@media (max-width: 450px) {
+  form {
+    align-items: center;
+  }
+  fieldset legend {
+    display: flex;
+    text-align: center;
+  }
+  .question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .question input {
+    margin-top: 5px;
+  }
+  .questionCheckbox {
+    flex-direction: row;
+  }
+  .horasTrabalhadasFeriado {
+    flex-direction: column
+  }
 }

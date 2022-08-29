@@ -1,8 +1,19 @@
 var select = (selector) => document.querySelector(selector);
 
 select("#feriadoSim").addEventListener("change", () =>
-   select("#inputFeriado").classList.toggle("hidden")
+   //select("#inputFeriado").classList.replace('hidden', 'question')
+  changeClasses()
 );
+
+function changeClasses() {
+   if (select("#inputFeriado").classList.contains('hidden')) {
+      select("#inputFeriado").classList.remove('hidden');
+      select("#inputFeriado").classList.add('question');
+   } else {
+      select("#inputFeriado").classList.add('hidden');
+      select("#inputFeriado").classList.remove('question');
+   }
+}
    
 select("#button").addEventListener('click', (e) => {
    e.preventDefault();
@@ -15,7 +26,10 @@ select("#reset").addEventListener('click', (event) => {
 
 select("#reset").addEventListener('click', (event) => {
    document.getElementById("inputFeriado").classList.add('hidden');
+   document.getElementById("inputFeriado").classList.remove('question');
+
 })
+
    
 function calcular() {
    let horasTrabalhadas = document.querySelector('#horasSemFeriado').value;

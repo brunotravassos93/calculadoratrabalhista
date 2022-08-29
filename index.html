@@ -21,18 +21,20 @@
             <form>
                <div class="question trabalhouFeriado">
                   <label>Trabalhou em algum feriado nesta semana?</label>
-                  <input type="checkbox" id="feriadoSim" onclick="javascript: clearHorasFeriadoField();" name="checkSim" />
-                  <label>SIM</label>
+                  <div class="questionCheckbox">
+                     <input type="checkbox" id="feriadoSim" onclick="javascript: clearHorasFeriadoField();" name="checkSim" />
+                     <label>SIM</label>
+                  </div>
                </div>
                <div class="question horasTrabalhadas">
-                  <label>Digite o número de horas trabalhadas durante a semana (SEM incluir o feriado):</label>
-                  <input type="number" class="inputHoras" id="horasSemFeriado" name="feriadoChecked" />
+                     <label>Digite o número de horas trabalhadas durante a semana (SEM incluir o feriado):</label>
+                     <input type="number" class="inputHoras" id="horasSemFeriado" name="feriadoChecked" />
                </div>
                <div class="question">
                   <label>Digite o valor recebido por hora trabalhada:</label>
                   <input type="number" class="inputHoras" id="valorHora" name="valor" />
                </div>
-               <div id="inputFeriado" class="question horasTrabalhadas feriado hidden">
+               <div id="inputFeriado" class="horasTrabalhadasFeriado hidden">
                   <label>Digite o número de horas trabalhas durante o feriado:</label>
                   <input type="number" class="inputHoras" id="horasFeriado" name="feriadoChecked" />
                </div>
